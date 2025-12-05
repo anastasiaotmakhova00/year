@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    padding: 40px;
+}
+
+/* Боковая карточка с рандомными суевериями */
+.container {
+    position: relative;
+}
+
+.superstition {
+    position: absolute;
+    /* Ставим ниже заголовка, чтобы не перекрывать H1 */
+    top: 100px;
+    right: 20px;
+    width: 200px;
+    background: linear-gradient(180deg, rgba(102,126,234,0.06), rgba(118,75,162,0.04));
+    border: 1px solid rgba(102,126,234,0.08);
+    padding: 12px 14px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    color: #333;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    backdrop-filter: blur(4px);
+}
+
+.superstition.small {
+    width: 170px;
+    font-size: 0.85em;
+}
+
+.superstition.hidden {
+    display: none;
+}
+
+/* Универсальный класс для скрытия элементов */
+.hidden {
+    display: none !important;
+}
+
+@keyframes superstitionFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.superstition.fade {
+    animation: superstitionFade 320ms ease;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #fca0e4;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="number"],
+textarea {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #fca0e4;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #9637ab 0%, #8d3be0 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(246, 146, 227, 0.4);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(246, 146, 227, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.result {
+    margin-top: 20px;
+    min-height: 0;
+    transition: all 0.3s ease;
+}
+
+/* Оформление результата как SMS-пузырька */
+.result {
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+    padding: 12px 16px;
+    max-width: 100%;
+    transition: all 0.25s ease;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+    line-height: 1.35;
+}
+
+.result.success {
+    background: linear-gradient(180deg, #ecfdf5 0%, #f0fff4 100%);
+    color: #065f46;
+}
+
+.result.error {
+    background: linear-gradient(180deg, #fff1f2 0%, #fff0f0 100%);
+    color: #7f1d1d;
+}
+
+/* Хвостик пузырька */
+.result.success::after,
+.result.error::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 18px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+}
+
+.result.success::after {
+    border-color: #f0fff4 transparent transparent transparent;
+}
+
+.result.error::after {
+    border-color: #fff0f0 transparent transparent transparent;
+}
+
+/* Если нужно расположить пузырёк с правой стороны (опция для правого выравнивания) */
+.result.right {
+    margin-left: auto;
+}
+
+.result.right::after {
+    left: auto;
+    right: 18px;
+    border-width: 8px 8px 0 8px;
+}
+
+.leap-yes {
+    color: #22c55e;
+    font-weight: 600;
+}
+
+.leap-no {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.result-item {
+    padding: 10px;
+    margin: 5px 0;
+    background: white;
+    border-radius: 6px;
+    border-left: 3px solid #667eea;
+}
+
+.result-item.leap {
+    border-left-color: #22c55e;
+}
+
+.result-item.not-leap {
+    border-left-color: #ef4444;
+}
+
+.info-section {
+    background: #f9f5ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    border-left: 4px solid #667eea;
+}
+
+.info-section p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.info-section ul {
+    margin-left: 20px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.info-section li {
+    margin-bottom: 8px;
+}
+
+.summary {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    input[type="number"],
+    textarea {
+        font-size: 16px;
+    }
+}
+
+/* На узких экранах показываем карточку под заголовком в потоке */
+@media (max-width: 760px) {
+    .superstition {
+        position: static;
+        width: 100%;
+        margin: 12px 0 0 0;
+    }
+}

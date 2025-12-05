@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Определение високосного года</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🗓️ Проверка високосного года</h1>
+        <div id="superstition" class="superstition hidden" aria-hidden="true"></div>
+
+        <div class="form-section">
+            <h2>Проверить один год</h2>
+            <div class="input-group">
+                <input 
+                    type="number" 
+                    id="yearInput" 
+                    placeholder="Введите год" 
+                    min="1"
+                    step="1"
+                >
+                <button onclick="checkYear()">Проверить</button>
+            </div>
+            <div id="result" class="result hidden"></div>
+        </div>
+
+        <div class="form-section">
+            <h2>Проверить несколько лет</h2>
+            <div class="input-group">
+                <textarea 
+                    id="yearsInput" 
+                    placeholder="Введите годы через запятую или пробел. Например: 2024, 2023, 2000"
+                    rows="4"
+                ></textarea>
+                <button onclick="checkMultiple()">Проверить все</button>
+            </div>
+            <div id="multiResult" class="result hidden"></div>
+        </div>
+
+        <div class="form-section">
+            <h2>Поиск ближайших високосных лет</h2>
+            <div class="input-group">
+                <input 
+                    type="number" 
+                    id="adjacentYearInput" 
+                    placeholder="Введите год" 
+                    min="1"
+                    step="1"
+                >
+                <button onclick="checkAdjacentLeapYears()">Найти</button>
+            </div>
+            <div id="adjacentResult" class="result hidden"></div>
+        </div>
+
+        <div class="info-section">
+            <h3>ℹ️ О високосных годах</h3>
+            <p>
+                Год является <strong>високосным</strong>, если:
+            </p>
+            <ul>
+                <li>Он делится на 4 <strong>И</strong> НЕ делится на 100, <strong>ИЛИ</strong></li>
+                <li>Он делится на 400</li>
+            </ul>
+            <p>
+                Примеры:
+            </p>
+            <ul>
+                <li>✓ <strong>2024</strong> — високосный (делится на 4, не делится на 100)</li>
+                <li>✗ <strong>2023</strong> — не високосный (не делится на 4)</li>
+                <li>✗ <strong>1900</strong> — не високосный (делится на 100, не делится на 400)</li>
+                <li>✓ <strong>2000</strong> — високосный (делится на 400)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
