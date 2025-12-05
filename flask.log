@@ -97,3 +97,10 @@ Press CTRL+C to quit
 127.0.0.1 - - [05/Dec/2025 17:43:58] "GET /api/check?year=1111 HTTP/1.1" 200 -
 127.0.0.1 - - [05/Dec/2025 17:44:03] "GET /api/check HTTP/1.1" 400 -
 127.0.0.1 - - [05/Dec/2025 17:44:03] "GET /api/check?year=333 HTTP/1.1" 200 -
+ * Detected change in '/workspaces/year/tests/test_leap_year.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 839-684-599
+127.0.0.1 - - [05/Dec/2025 17:46:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2025 17:46:54] "GET /static/script.js HTTP/1.1" 200 -
+127.0.0.1 - - [05/Dec/2025 17:46:54] "GET /static/style.css HTTP/1.1" 200 -
